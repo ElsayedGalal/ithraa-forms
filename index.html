@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إثراء الجود - تجربة الحاج الرقمية</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap');
+        
+        body { 
+            font-family: 'Cairo', sans-serif; 
+            background: linear-gradient(135deg, #00334D 0%, #005D92 50%, #00AABF 100%);
+            background-attachment: fixed;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            border-color: #C29979;
+        }
+
+        .icon-box {
+            background: linear-gradient(45deg, #00334D, #00AABF);
+            clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: #C29979;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center py-10 px-4">
+
+    <div class="text-center mb-12 animate__animated animate__fadeInDown">
+        <div class="inline-block relative">
+            <div class="bg-white p-6 rounded-3xl shadow-2xl mb-4 border-b-4 border-[#C29979]">
+                <h1 class="text-[#00334D] text-4xl font-extrabold tracking-tighter">إثراء الجود</h1>
+                <div class="h-1 w-20 bg-[#00AABF] mx-auto mt-2 rounded-full"></div>
+                <p class="text-[#C29979] text-lg mt-2 font-bold uppercase tracking-widest">عطاء يجود</p>
+            </div>
+        </div>
+        <h2 class="text-white text-2xl font-light mt-4 opacity-90">استبيانات قياس رضا ضيوف الرحمن</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl px-2 animate__animated animate__fadeInUp">
+        
+        <script>
+            const forms = [
+                { name: "مرحلة ما قبل الوصول", url: "https://forms.gle/1RVn2fce1dsQH2mC9", icon: "🌍" },
+                { name: "الوصول والإقامة والسكن", url: "https://forms.gle/3WK4RUUBPx1Ct39m7", icon: "🏨" },
+                { name: "الإرشاد وتأدية النُسك", url: "https://forms.gle/xofWoHLd9tse5sax8", icon: "📖" },
+                { name: "مشعر منى (التروية)", url: "https://forms.gle/2XwdUFDEnX5t6Gur6", icon: "⛺" },
+                { name: "مشعر عرفات (التصعيد)", url: "https://forms.gle/Hqbh4BAdixc1zU86A", icon: "🕋" }, // أيقونة الكعبة تعبيراً عن الركن الأعظم
+                { name: "مشعر مزدلفة (النفرة)", url: "https://forms.gle/NmWoyz5rtjnPYoHU8", icon: "🌌" }, // أيقونة السماء المرصعة بالنجوم ترمز لليلة المبيت بمزدلفة
+                { name: "مشعر منى (أيام التشريق)", url: "https://forms.gle/JwaARxTNyCY8r1mp6", icon: "⛺" },
+                { name: "المغادرة والتوديع", url: "https://forms.gle/btHyhwtEQSAYea876", icon: "✈️" }
+            ];
+
+            document.write(forms.map((form, index) => `
+                <a href="${form.url}" class="glass-card relative flex items-center p-6 rounded-2xl group cursor-pointer">
+                    <div class="step-number">${index + 1}</div>
+                    <div class="icon-box w-16 h-16 flex items-center justify-center text-3xl text-white shadow-inner transition-transform group-hover:rotate-12">
+                        ${form.icon}
+                    </div>
+                    <div class="mr-6">
+                        <h3 class="text-[#00334D] text-xl font-extrabold group-hover:text-[#00AABF] transition-colors">${form.name}</h3>
+                        <p class="text-gray-500 text-sm mt-1">اضغط لبدء التقييم</p>
+                    </div>
+                </a>
+            `).join(''));
+        </script>
+
+    </div>
+
+    <footer class="mt-20 text-center animate__animated animate__fadeIn">
+        <div class="flex justify-center space-x-4 space-x-reverse mb-4 text-white opacity-70">
+            <span>● تميز</span>
+            <span>● جودة</span>
+            <span>● إثراء</span>
+        </div>
+        <p class="text-white/60 text-sm">جميع الحقوق محفوظة لشركة إثراء الجود © 2026</p>
+    </footer>
+
+</body>
+</html>
