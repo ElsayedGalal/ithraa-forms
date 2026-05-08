@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بوابة الخدمات - إثراء الجود</title>
+    <title>بوابة إثراء الجود الرقمية</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
     <style>
@@ -12,10 +12,8 @@
             font-family: 'Cairo', sans-serif; 
             background: linear-gradient(135deg, #00334D 0%, #005D92 50%, #00AABF 100%);
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            margin: 0;
+            overflow-x: hidden;
         }
         .brand-text { color: #C29979; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); }
         .glass-card { 
@@ -23,34 +21,84 @@
             backdrop-filter: blur(10px); 
             border: 1px solid rgba(255, 255, 255, 0.2); 
         }
+        /* كلاس لإخفاء الأقسام */
+        .page-hidden { display: none !important; }
     </style>
 </head>
-<body class="p-6">
+<body>
 
-    <div class="text-center mb-16 animate__animated animate__fadeInDown">
-        <h1 class="brand-text text-5xl font-black mb-4">إثراء الجود</h1>
-        <p class="text-white text-xl opacity-90 font-bold">يرجى اختيار نوع قطاع الأعمال</p>
+    <div id="selection-page" class="min-h-screen flex flex-col items-center justify-center p-6 animate__animated animate__fadeIn">
+        <div class="text-center mb-16">
+            <h1 class="brand-text text-6xl font-black mb-4">إثراء الجود</h1>
+            <p class="text-white text-xl opacity-90 font-bold border-b-2 border-[#C29979] pb-2 inline-block">يرجى اختيار نوع قطاع الأعمال</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 w-full max-w-4xl">
+            <div class="glass-card p-10 rounded-[2.5rem] flex flex-col items-center justify-center opacity-50 grayscale cursor-not-allowed border-b-8 border-gray-400">
+                <div class="bg-gray-200 p-6 rounded-3xl mb-6 text-6xl">🏢</div>
+                <h2 class="text-gray-600 font-black text-4xl mb-2">B2B</h2>
+            </div>
+
+            <button onclick="navigateToForms()" class="glass-card group p-10 rounded-[2.5rem] flex flex-col items-center justify-center hover:scale-105 transition-all shadow-2xl border-b-8 border-[#C29979]">
+                <div class="bg-[#00334D]/10 p-6 rounded-3xl mb-6 group-hover:bg-[#C29979]/20 transition-colors text-6xl">🤝</div>
+                <h2 class="text-[#00334D] font-black text-4xl mb-2">B2B2C</h2>
+            </button>
+        </div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 w-full max-w-4xl animate__animated animate__zoomIn">
+    <div id="forms-page" class="page-hidden min-h-screen w-full flex flex-col items-center py-12 px-4 animate__animated animate__slideInLeft">
         
-        <a href="#" class="glass-card group p-10 rounded-[2.5rem] flex flex-col items-center justify-center hover:scale-105 transition-all shadow-2xl border-b-8 border-gray-300 opacity-60">
-            <div class="bg-[#00334D]/10 p-6 rounded-3xl mb-6">
-                <span class="text-6xl">🏢</span>
+        <div class="w-full max-w-6xl flex justify-between items-center mb-12 border-b border-white/20 pb-6">
+            <button onclick="backToSelection()" class="bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-xl flex items-center gap-2 transition-all">
+                <span>→ عودة</span>
+            </button>
+            <div class="text-center">
+                <h1 class="brand-text text-3xl font-black">إثراء الجود</h1>
+                <p class="text-white text-xs opacity-70 italic font-bold uppercase tracking-widest">B2B2C</p>
             </div>
-            <h2 class="text-[#00334D] font-black text-4xl mb-2">B2B</h2>
-            <span class="text-gray-500 font-bold text-lg italic tracking-widest uppercase">Business to Business</span>
-        </a>
+            <div class="w-10"></div> </div>
 
-        <a href="forms.html" class="glass-card group p-10 rounded-[2.5rem] flex flex-col items-center justify-center hover:scale-105 transition-all shadow-2xl border-b-8 border-[#C29979]">
-            <div class="bg-[#00334D]/10 p-6 rounded-3xl mb-6 group-hover:bg-[#C29979]/20 transition-colors">
-                <span class="text-6xl">🤝</span>
-            </div>
-            <h2 class="text-[#00334D] font-black text-4xl mb-2">B2B2C</h2>
-            <span class="text-gray-500 font-bold text-lg italic tracking-widest uppercase">نماذج متابعة النسك</span>
-        </a>
+        <h2 class="text-white text-2xl font-bold mb-8 text-center animate__animated animate__fadeInDown">نماذج تقييم الخدمة المقدمة لفترة تأدية النسك</h2>
 
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl">
+            <a href="https://forms.cloud.microsoft/r/ga6amDgmFX" target="_blank" class="glass-card p-6 rounded-[2rem] flex items-center justify-between hover:scale-105 transition-all shadow-xl border-l-8 border-[#C29979]">
+                <div class="flex flex-col text-right"><span class="text-[#00334D] font-black text-xl">مشعر منى</span><span class="text-[#C29979] font-bold text-sm">(يوم التروية)</span></div>
+                <img src="tent.png" alt="Tent" class="w-16 h-16 object-contain">
+            </a>
+            <a href="https://forms.cloud.microsoft/r/Jmy1EhNWWg" target="_blank" class="glass-card p-6 rounded-[2rem] flex items-center justify-between hover:scale-105 transition-all shadow-xl border-l-8 border-[#C29979]">
+                <div class="flex flex-col text-right"><span class="text-[#00334D] font-black text-xl">مشعر عرفات</span><span class="text-gray-500 text-sm">نموذج المتابعة</span></div>
+                <img src="arafat.png" alt="Arafat" class="w-16 h-16 object-contain">
+            </a>
+            <a href="https://forms.cloud.microsoft/r/RYR2qnwTTT" target="_blank" class="glass-card p-6 rounded-[2rem] flex items-center justify-between hover:scale-105 transition-all shadow-xl border-l-8 border-[#C29979]">
+                <div class="flex flex-col text-right"><span class="text-[#00334D] font-black text-xl">مشعر مزدلفة</span><span class="text-gray-500 text-sm">نموذج المتابعة</span></div>
+                <img src="jamarat mozdalifa.png" alt="Mozdalifa" class="w-16 h-16 object-contain">
+            </a>
+            <a href="https://forms.cloud.microsoft/r/ntGPvskNLA" target="_blank" class="glass-card p-6 rounded-[2rem] flex items-center justify-between hover:scale-105 transition-all shadow-xl border-l-8 border-[#C29979]">
+                <div class="flex flex-col text-right"><span class="text-[#00334D] font-black text-xl">مشعر منى</span><span class="text-[#C29979] font-bold text-sm">(أيام التشريق)</span></div>
+                <img src="tent.png" alt="Tent" class="w-16 h-16 object-contain">
+            </a>
+        </div>
     </div>
+
+    <script>
+        function navigateToForms() {
+            // إخفاء صفحة الاختيار
+            document.getElementById('selection-page').classList.add('page-hidden');
+            // إظهار صفحة النماذج
+            document.getElementById('forms-page').classList.remove('page-hidden');
+            // التمرير للأعلى
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        function backToSelection() {
+            // إخفاء صفحة النماذج
+            document.getElementById('forms-page').classList.add('page-hidden');
+            // إظهار صفحة الاختيار
+            document.getElementById('selection-page').classList.remove('page-hidden');
+            // التمرير للأعلى
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+    </script>
 
 </body>
 </html>
