@@ -11,17 +11,13 @@
         body { 
             font-family: 'Cairo', sans-serif; 
             background: linear-gradient(135deg, #00334D 0%, #005D92 50%, #00AABF 100%);
-            min-height: 100vh;
-            margin: 0;
-            overflow-x: hidden;
+            min-height: 100vh; margin: 0; overflow-x: hidden;
         }
         .brand-text { color: #C29979; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); }
         .glass-card { 
             background: rgba(255, 255, 255, 0.95); 
-            backdrop-filter: blur(10px); 
-            border: 1px solid rgba(255, 255, 255, 0.2); 
+            backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); 
         }
-        /* كلاس لإخفاء الأقسام */
         .page-hidden { display: none !important; }
     </style>
 </head>
@@ -34,29 +30,67 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10 w-full max-w-4xl">
-            <div class="glass-card p-10 rounded-[2.5rem] flex flex-col items-center justify-center opacity-50 grayscale cursor-not-allowed border-b-8 border-gray-400">
-                <div class="bg-gray-200 p-6 rounded-3xl mb-6 text-6xl">🏢</div>
-                <h2 class="text-gray-600 font-black text-4xl mb-2">B2B</h2>
-            </div>
+            <button onclick="navigateToB2B()" class="glass-card group p-10 rounded-[2.5rem] flex flex-col items-center justify-center hover:scale-105 transition-all shadow-2xl border-b-8 border-[#C29979]">
+                <div class="bg-[#00334D]/10 p-6 rounded-3xl mb-6 group-hover:bg-[#C29979]/20 transition-colors text-6xl">🏢</div>
+                <h2 class="text-[#00334D] font-black text-4xl mb-2">B2B</h2>
+            </button>
 
-            <button onclick="navigateToForms()" class="glass-card group p-10 rounded-[2.5rem] flex flex-col items-center justify-center hover:scale-105 transition-all shadow-2xl border-b-8 border-[#C29979]">
+            <button onclick="navigateToB2B2C()" class="glass-card group p-10 rounded-[2.5rem] flex flex-col items-center justify-center hover:scale-105 transition-all shadow-2xl border-b-8 border-[#C29979]">
                 <div class="bg-[#00334D]/10 p-6 rounded-3xl mb-6 group-hover:bg-[#C29979]/20 transition-colors text-6xl">🤝</div>
                 <h2 class="text-[#00334D] font-black text-4xl mb-2">B2B2C</h2>
             </button>
         </div>
     </div>
 
-    <div id="forms-page" class="page-hidden min-h-screen w-full flex flex-col items-center py-12 px-4 animate__animated animate__slideInLeft">
-        
+    <div id="b2b-page" class="page-hidden min-h-screen w-full flex flex-col items-center py-12 px-4 animate__animated animate__slideInRight">
         <div class="w-full max-w-6xl flex justify-between items-center mb-12 border-b border-white/20 pb-6">
-            <button onclick="backToSelection()" class="bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-xl flex items-center gap-2 transition-all">
-                <span>→ عودة</span>
-            </button>
+            <button onclick="backToSelection()" class="bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-xl flex items-center gap-2 transition-all"><span>→ عودة</span></button>
             <div class="text-center">
                 <h1 class="brand-text text-3xl font-black">إثراء الجود</h1>
-                <p class="text-white text-xs opacity-70 italic font-bold uppercase tracking-widest">B2B2C</p>
+                <p class="text-white text-xs opacity-70 italic font-bold uppercase tracking-widest font-bold">B2B</p>
             </div>
-            <div class="w-10"></div> </div>
+            <div class="w-10"></div> 
+        </div>
+
+        <h2 class="text-white text-2xl font-bold mb-8 text-center animate__animated animate__fadeInDown">نماذج تقييم خدمات قطاع الأعمال B2B</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl">
+            <a href="#" target="_blank" class="glass-card p-6 rounded-[2rem] flex items-center justify-between hover:scale-105 transition-all shadow-xl border-l-8 border-[#C29979]">
+                <div class="flex flex-col text-right"><span class="text-[#00334D] font-black text-xl">1. مرحلة الوصول</span><span class="text-gray-400 text-sm italic">استقبال ضيوف الرحمن</span></div>
+                <img src="hotel.png" alt="Hotel" class="w-16 h-16 object-contain">
+            </a>
+            <a href="#" target="_blank" class="glass-card p-6 rounded-[2rem] flex items-center justify-between hover:scale-105 transition-all shadow-xl border-l-8 border-[#C29979]">
+                <div class="flex flex-col text-right"><span class="text-[#00334D] font-black text-xl">2. مشعر منى</span><span class="text-[#C29979] font-bold text-sm">(يوم التروية)</span></div>
+                <img src="tent.png" alt="Tent" class="w-16 h-16 object-contain">
+            </a>
+            <a href="#" target="_blank" class="glass-card p-6 rounded-[2rem] flex items-center justify-between hover:scale-105 transition-all shadow-xl border-l-8 border-[#C29979]">
+                <div class="flex flex-col text-right"><span class="text-[#00334D] font-black text-xl">3. مشعر عرفات</span><span class="text-[#C29979] font-bold text-sm">(التصعيد)</span></div>
+                <img src="arafat.png" alt="Arafat" class="w-16 h-16 object-contain">
+            </a>
+            <a href="#" target="_blank" class="glass-card p-6 rounded-[2rem] flex items-center justify-between hover:scale-105 transition-all shadow-xl border-l-8 border-[#C29979]">
+                <div class="flex flex-col text-right"><span class="text-[#00334D] font-black text-xl">4. مشعر مزدلفة</span><span class="text-[#C29979] font-bold text-sm">(النفرة)</span></div>
+                <img src="jamarat mozdalifa.png" alt="Mozdalifa" class="w-16 h-16 object-contain">
+            </a>
+            <a href="#" target="_blank" class="glass-card p-6 rounded-[2rem] flex items-center justify-between hover:scale-105 transition-all shadow-xl border-l-8 border-[#C29979]">
+                <div class="flex flex-col text-right"><span class="text-[#00334D] font-black text-xl">5. مشعر منى</span><span class="text-[#C29979] font-bold text-sm">(أيام التشريق)</span></div>
+                <img src="tent.png" alt="Tent" class="w-16 h-16 object-contain">
+            </a>
+            <a href="#" target="_blank" class="glass-card p-6 rounded-[2rem] flex items-center justify-between hover:scale-105 transition-all shadow-xl border-l-8 border-[#C29979]">
+                <div class="flex flex-col text-right"><span class="text-[#00334D] font-black text-xl">6. مرحلة المغادرة</span><span class="text-gray-400 text-sm italic">توديع ضيوف الرحمن</span></div>
+                <img src="flying.png" alt="Flying" class="w-16 h-16 object-contain">
+            </a>
+        </div>
+    </div>
+
+    <div id="b2b2c-page" class="page-hidden min-h-screen w-full flex flex-col items-center py-12 px-4 animate__animated animate__slideInLeft">
+        <div class="w-full max-w-6xl flex justify-between items-center mb-12 border-b border-white/20 pb-6">
+            <button onclick="backToSelection()" class="bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-xl flex items-center gap-2 transition-all"><span>→ عودة</span></button>
+            <div class="text-center">
+                <h1 class="brand-text text-3xl font-black">إثراء الجود</h1>
+                <p class="text-white text-xs opacity-70 italic font-bold uppercase tracking-widest font-bold">B2B2C</p>
+            </div>
+            <div class="w-10"></div> 
+        </div>
 
         <h2 class="text-white text-2xl font-bold mb-8 text-center animate__animated animate__fadeInDown">نماذج تقييم الخدمة المقدمة لفترة تأدية النسك</h2>
 
@@ -81,24 +115,24 @@
     </div>
 
     <script>
-        function navigateToForms() {
-            // إخفاء صفحة الاختيار
+        function navigateToB2B() {
             document.getElementById('selection-page').classList.add('page-hidden');
-            // إظهار صفحة النماذج
-            document.getElementById('forms-page').classList.remove('page-hidden');
-            // التمرير للأعلى
+            document.getElementById('b2b2c-page').classList.add('page-hidden');
+            document.getElementById('b2b-page').classList.remove('page-hidden');
             window.scrollTo({top: 0, behavior: 'smooth'});
         }
-
+        function navigateToB2B2C() {
+            document.getElementById('selection-page').classList.add('page-hidden');
+            document.getElementById('b2b-page').classList.add('page-hidden');
+            document.getElementById('b2b2c-page').classList.remove('page-hidden');
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
         function backToSelection() {
-            // إخفاء صفحة النماذج
-            document.getElementById('forms-page').classList.add('page-hidden');
-            // إظهار صفحة الاختيار
+            document.getElementById('b2b-page').classList.add('page-hidden');
+            document.getElementById('b2b2c-page').classList.add('page-hidden');
             document.getElementById('selection-page').classList.remove('page-hidden');
-            // التمرير للأعلى
             window.scrollTo({top: 0, behavior: 'smooth'});
         }
     </script>
-
 </body>
 </html>
